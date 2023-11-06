@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>سام ایمن ویستا</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Team Start -->
+    <div class="team">
+        <div class="container">
+            <div class="section-header text-center">
+
+                <h2>محصولات</h2>
+            </div>
+            <div class="row">
+                {% for firevehicl in fire_vehicles %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{{ firevehicl.get_absolute_url }}">
+                                    <img src="{{ firevehicl.image_title.url }}" alt="Team Image">
+                                </a>
+                            </div>
+                            <div class="team-text">
+                                <h4><a href="{{ firevehicl.get_absolute_url }}">{{ firevehicl.chassis }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for municipality in all_municipality %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{{ municipality.get_absolute_url }}">
+                                    <img src="{{ municipality.image_title.url }}" alt="Team Image">
+                                </a>
+                            </div>
+                            <div class="team-text">
+                                <h4><a href="{{ municipality.get_absolute_url }}">{{ municipality.chassis }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for ambulance in all_ambulance %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{{ ambulance.get_absolute_url }}">
+                                    <img src="{{ ambulance.image_title.url }}" alt="Team Image">
+                                </a>
+                            </div>
+                            <div class="team-text">
+                                <h4><a href="{{ ambulance.get_absolute_url }}">{{ ambulance.chassis }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% for pump in all_pump %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{{ pump.get_absolute_url }}">
+                                    <img src="{{ pump.image_title.url }}" alt="Team Image">
+                                </a>
+                            </div>
+                            <div class="team-text">
+                                <h4><a href="{{ pump.get_absolute_url }}">{{ pump.pump_model }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+{% endblock %}
+{

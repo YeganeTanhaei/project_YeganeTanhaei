@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Nav Bar Start -->
+    <div class="nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">منو</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">تماس با ما</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">در باره ما</a>
+                        <a href="{% url 'service' %}" class="nav-item nav-link">سرویس</a>
+                        <!-- <a href="price.html" class="nav-item nav-link">Price</a> -->
+                        <!-- <a href="location.html" class="nav-item nav-link">Washing Points</a> -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">صفحه ها</a>
+                            <div class="dropdown-menu">
+                                {#                                       <a href="blog.html" class="dropdown-item">تمامی اطلاعات</a>#}
+                                <a href="{% url 'single' %}" class="dropdown-item">اطلاعات شرکت</a>
+                                <a href="{% url 'team' %}" class="dropdown-item">تمامی محصولات</a>
+                                <!-- <a href="booking.html" class="dropdown-item">Schedule Booking</a> -->
+                            </div>
+                        </div>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">صفحه اصلی</a>
+                    </div>
+                    <div class="ml-auto">
+                        <!-- <a class="btn btn-custom" href="#">Get Appointment</a> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>About Us</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- About Start -->
+    <div class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="{% static 'mainpage/images/about.jpg' %}" alt="Image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-header text-left">
+                        <p>About Us</p>
+                        <h2>car washing and detailing</h2>
+                    </div>
+                    <div class="about-content">
+                        <p>
+                            Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in hendre dui, vel blandit massa. Ut
+                            vestibu suscipi cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget
+                            velit luctus dictum
+                        </p>
+                        <ul>
+                            <li><i class="far fa-check-circle"></i>Seats washing</li>
+                            <li><i class="far fa-check-circle"></i>Vacuum cleaning</li>
+                            <li><i class="far fa-check-circle"></i>Interior wet cleaning</li>
+                            <li><i class="far fa-check-circle"></i>Window wiping</li>
+                        </ul>
+                        <a class="btn btn-custom" href="">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+{% endblock %}
+
+

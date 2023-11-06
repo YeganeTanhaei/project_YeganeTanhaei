@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <style>
+        html table {
+            direction: rtl;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 2px solid black;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            color: black;
+            width: 100%;
+        }
+
+        th:hover {
+            background-color: #ddd;
+        }
+
+        td:hover {
+            background-color: #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            background-color: #d5d5d5;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+    </style>
+
+{% endblock %}
+{% block carousel %}
+    <!-- Carousel Start -->
+    <div class="carousel">
+        {% for pump in pump_info %}
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{{ pump.img.url }}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Carousel End -->
+{% endblock %}
+{% block content %}
+    <h1>{{ pump_details.pump_model }}</h1>
+    <table>
+        <tr>
+            <th>نوع پمپ</th>
+            <td>{{ pump_details.pump_type }}</td>
+        </tr>
+        <tr>
+            <th>جنس بدنه پمپ</th>
+            <td>{{ pump_details.body_material }}</td>
+        </tr>
+        <tr>
+            <th>جنس شفت</th>
+            <td>{{ pump_details.shaft_material }}</td>
+        </tr>
+        <tr>
+            <th>جنس پروانه</th>
+            <td>{{ pump_details.Kind_butterfly }}</td>
+        </tr>
+        <tr>
+            <th>جهت گردش</th>
+            <td>{{ pump_details.flow_direction }}</td>
+        </tr>
+        <tr>
+            <th>حداکثر فشار بسته</th>
+            <td>{{ pump_details.maximum_pressure }}</td>
+        </tr>
+        <tr>
+            <th>دبی خروجی</th>
+            <td>{{ pump_details.Output_flow_rate }}</td>
+        </tr>
+        <tr>
+            <th>دور مورد نیاز پمپ</th>
+            <td>{{ pump_details.required_distance }}</td>
+        </tr>
+        <tr>
+            <th>نوع خلاء</th>
+            <td>{{ pump_details.Vacuum_type }}</td>
+        </tr>
+        <tr>
+            <th>سرعت آماده سازی پمپ</th>
+            <td>{{ pump_details.preparation_speed }}</td>
+        </tr>
+        <tr>
+            <th>حداکثر عمق مکش</th>
+            <td>{{ pump_details.maximum_suction_depth }}</td>
+        </tr>
+        <tr>
+            <th>توضیحات</th>
+            <td>{{ pump_details.description }}</td>
+        </tr>
+    </table>
+{% endblock %}

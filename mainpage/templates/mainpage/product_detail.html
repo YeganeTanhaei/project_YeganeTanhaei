@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <style>
+        html table {
+            direction: rtl;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 2px solid black;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            color: black;
+            width: 100%;
+        }
+
+        th:hover {
+            background-color: #ddd;
+        }
+
+        td:hover {
+            background-color: #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            background-color: #d5d5d5;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block carousel %}
+    <!-- Carousel Start -->
+    <div class="carousel">
+        {% for firevehicle in all_firevehicle %}
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{{ firevehicle.img.url }}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Carousel End -->
+{% endblock %}
+{% block content %}
+    <h1>{{ firevehicle.chassis }}</h1>
+    <div>
+        <table>
+            <tr>
+                <th>موارد استفاده</th>
+                <td>{{ firevehicle.uses }}</td>
+            </tr>
+            <tr>
+                <th>ابعاد (میلی متر) : ( ارتفاع× عرض× طول)</th>
+                <td>{{ firevehicle.dimension }}</td>
+            </tr>
+            <tr>
+                <th>سیستم اطفا</th>
+                <td> {{ firevehicle.extinguishing_system }}</td>
+            </tr>
+            <tr>
+                <th>پمپ آب</th>
+                <td>{{ firevehicle.water_pump }}</td>
+            </tr>
+            <tr>
+                <th>مخزن آب</th>
+                <td>{{ firevehicle.water_tank }}</td>
+            </tr>
+            <tr>
+                <th>مخزن فوم</th>
+                <td>{{ firevehicle.foam_tank }}</td>
+            </tr>
+            <tr>
+                <th>هوزریل</th>
+                <td>{{ firevehicle.hose_reel }}</td>
+            </tr>
+            <tr>
+                <th>کابین</th>
+                <td>{{ firevehicle.cabin }}</td>
+            </tr>
+            <tr>
+                <th>کرکره ها</th>
+                <td>{{ firevehicle.roller_shutter }}</td>
+            </tr>
+            <tr>
+                <th>سیستم پودر</th>
+                <td>{{ firevehicle.powder_system }}</td>
+            </tr>
+            <tr>
+                <th>تجهیزات</th>
+                <td>{{ firevehicle.equipment }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

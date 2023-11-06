@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="team">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>انواع خودرو های آتش نشانی و امداد و نجات</h2>
+            </div>
+            <div class="row">
+                {% for pump in pump_info %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{{ pump.get_absolute_url }}">
+                                    <img src="{{ pump.image_title.url }}" alt="Team Image">
+                                </a>
+                            </div>
+                            <div class="team-text">
+                                <h4><a href="{{ pump.get_absolute_url }}">{{ pump.pump_model }}</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <style>
+        html table {
+            direction: rtl;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 2px solid black;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            color: black;
+            width: 100%;
+        }
+
+        th:hover {
+            background-color: #ddd;
+        }
+
+        td:hover {
+            background-color: #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            background-color: #d5d5d5;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block carousel %}
+    <!-- Carousel Start -->
+    <div class="carousel">
+        {% for ambulance in all_ambulance %}
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{{ ambulance.img.url }}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Carousel End -->
+{% endblock %}
+{% block content %}
+    <h1>{{ ambulance_details.chassis }}</h1>
+    <table>
+        <tr>
+            <th>کابین بیمار</th>
+            <td>{{ ambulance_details.sick_cabin }}</td>
+        </tr>
+        <tr>
+            <th>سیستم برق و روشنایی</th>
+            <td>{{ ambulance_details.electricity_lighting_system }}</td>
+        </tr>
+        <tr>
+            <th>سیستم خنک کننده</th>
+            <td>{{ ambulance_details.cooling_heating_system }}</td>
+        </tr>
+        <tr>
+            <th>سیستم آلارم و آژیر و علائم ظاهری آمبولانس</th>
+            <td>{{ ambulance_details.ambulance_signs }}</td>
+        </tr>
+        <tr>
+            <th>تجهیزات پزشکی</th>
+            <td>{{ ambulance_details.medical_equipment }}</td>
+        </tr>
+    </table>
+{% endblock %}

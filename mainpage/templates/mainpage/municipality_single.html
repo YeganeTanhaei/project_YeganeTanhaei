@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <style>
+        html table {
+            direction: rtl;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 2px solid black;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            color: black;
+            width: 100%;
+        }
+
+        th:hover {
+            background-color: #ddd;
+        }
+
+        td:hover {
+            background-color: #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            background-color: #d5d5d5;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block carousel %}
+    <!-- Carousel Start -->
+    <div class="carousel">
+        {% for municipality in all_municipality %}
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{{ municipality.img.url }}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Carousel End -->
+{% endblock %}
+{% block content %}
+    <h1>{{ municipality.chassis }}</h1>
+    <table>
+        <tr>
+            <th>موارد استفاده</th>
+            <td>{{ municipality.uses }}</td>
+        </tr>
+        <tr>
+            <th>ابعاد (میلی متر) : ( ارتفاع× عرض× طول)</th>
+            <td>{{ municipality.dimension }}</td>
+        </tr>
+        <tr>
+            <th>سیستم خنک کننده</th>
+            <td>{{ municipality.cooling_system }}</td>
+        </tr>
+        <tr>
+            <th>پمپ هیدرولیک</th>
+            <td>{{ municipality.hydraulic_pump }}</td>
+        </tr>
+        <tr>
+            <th>مخزن</th>
+            <td>{{ municipality.tank }}</td>
+        </tr>
+        <tr>
+            <th>مخزن زباله</th>
+            <td>{{ municipality.refuse_tank }}</td>
+        </tr>
+        <tr>
+            <th>هاپر</th>
+            <td>{{ municipality.hopper }}</td>
+        </tr>
+        <tr>
+            <th>مکانیزم تخلیه سطل</th>
+            <td>{{ municipality.been_off_load_mechanism }}</td>
+        </tr>
+        <tr>
+            <th>بیل تخلیه</th>
+            <td>{{ municipality.drain_shovel }}</td>
+        </tr>
+        <tr>
+            <th>تجهیزات هیدرولیکی</th>
+            <td>{{ municipality.hydraulic_equipment }}</td>
+        </tr>
+        <tr>
+            <th>سیستم پرس زباله</th>
+            <td>{{ municipality.pressing_system }}</td>
+        </tr>
+        <tr>
+            <th>پمپ آب</th>
+            <td>{{ municipality.water_pump }}</td>
+        </tr>
+        <tr>
+            <th>مخزن آب</th>
+            <td>{{ municipality.water_tank }}</td>
+        </tr>
+        <tr>
+            <th>کابین</th>
+            <td>{{ municipality.cabin }}</td>
+        </tr>
+        <tr>
+            <th>درب ها</th>
+            <td>{{ municipality.door }}</td>
+        </tr>
+        <tr>
+            <th>کرکره ها</th>
+            <td>{{ municipality.roller_shutter }}</td>
+        </tr>
+        <tr>
+            <th>سیستم پودر</th>
+            <td>{{ municipality.powder_system }}</td>
+        </tr>
+        <tr>
+            <td>تجهیزات</td>
+            <td>{{ municipality.equipment }}</td>
+        </tr>
+    </table>
+{% endblock %}

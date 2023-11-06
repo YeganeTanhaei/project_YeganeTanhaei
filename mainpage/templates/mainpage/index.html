@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Carousel Start -->
+    <div class="carousel">
+        <div class="container-fluid">
+            <div class="owl-carousel">
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'mainpage/images/withe.jpeg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h3>سام ایمن ویستا</h3>
+                        <h1>خودروهای آتش نشانی</h1>
+                        <a class="btn btn-custom" href="{% url 'information_fire' %}">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'mainpage/images/khadamat.jpeg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h3>سام ایمن ویستا</h3>
+                        <h1>خودروهای خدمات شهری</h1>
+                        <a class="btn btn-custom" href="{% url 'own_municipality' %}">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'mainpage/images/ambulance.jpeg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h3>سام ایمن ویستا</h3>
+                        <h1>خودرو های آمبولانس</h1>
+                        <a class="btn btn-custom" href="{% url 'all_ambulance' %}">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="{% static 'mainpage/images/rosenbover.jpg' %}" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h3>سام ایمن ویستا</h3>
+                        <h1>پمپ های آتش نشانی</h1>
+                        <a class="btn btn-custom" href="{% url 'my_pump' %}">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About Start -->
+    <div style="direction: rtl" class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="{% static 'mainpage/images/withe.jpeg' %}" alt="Image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-header text-left">
+                        <p>درباره ما</p>
+                        <h2>سام ایمن ویستا</h2>
+                    </div>
+                    <div class="about-content">
+                        <p>
+                            شرکت سام ایمن ویستا با 20 سال سابقه و فعالیت مستمر و پویا در ساخت انواع خودروهای آتش نشانی
+                            سبک و سنگین، خدمات شهری، آمبولانس در حال ارائه خدمات می باشد
+                        </p>
+{#                        <ul>#}
+{#                            <li><i class="far fa-check-circle"></i>Seats washing</li>#}
+{#                            <li><i class="far fa-check-circle"></i>Vacuum cleaning</li>#}
+{#                            <li><i class="far fa-check-circle"></i>Interior wet cleaning</li>#}
+{#                            <li><i class="far fa-check-circle"></i>Window wiping</li>#}
+{#                        </ul>#}
+                        <a class="btn btn-custom" href="{% url 'single1' %}">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Team Start -->
+    <div class="team">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>انواع خودرو های آتش نشانی و امداد و نجات</h2>
+            </div>
+            <div id="tagToToggle" class="team">
+                <div class="row">
+                    {% for firevehicl in fire_vehicles %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <a href="{{ firevehicl.get_absolute_url }}">
+                                        <img src="{{ firevehicl.image_title.url }}" alt="Team Image">
+                                    </a>
+                                </div>
+                                <div class="team-text">
+                                    <h4><a href="{{ firevehicl.get_absolute_url }}">{{ firevehicl.chassis }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% for municipality in all_municipality %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <a href="{{ municipality.get_absolute_url }}">
+                                    <img src="{{ municipality.image_title.url }}" alt="Team Image">
+                                    </a>
+                                </div>
+                                <div class="team-text">
+                                    <h4><a href="{{ municipality.get_absolute_url }}">{{ municipality.chassis }}</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toggle">
+        <button id="toggleButton">..دیدن موارد</button>
+    </div>
+    <!-- Team End -->
+
+
+{% endblock %}

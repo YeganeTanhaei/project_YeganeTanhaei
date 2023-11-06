@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div style="margin-bottom:220px " class="alert alert-danger" role="alert">
+        شما از حساب کاربری خود حارج شده اید!<span><b><a href="{% url 'user-login' %}">دوباره وارد شوید</a></b></span>
+    </div>
+{% endblock %}

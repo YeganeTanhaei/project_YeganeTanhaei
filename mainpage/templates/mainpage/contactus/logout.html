@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+    <h1 style="margin-top: 10px">خروج از حساب کاربری</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-custom" type="submit">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
