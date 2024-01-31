@@ -124,3 +124,10 @@ MEDIA_ROOT=BASE_DIR/'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK ='bootstrap4'
 
+#------------------email--------------------
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_HOST_USER="yeganetanhaei@gmail.com"
+EMAIL_HOST_PASSWORD="mese jouq pwhu sbzc"
+EMAIL_PORT=587
+EMAIL_USE_TLS=True

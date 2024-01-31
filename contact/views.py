@@ -5,3 +5,5 @@ def home(request):
 
 def logout_message(request):
     return render(request,'contact/logout.html')
+def validation(request):
+    return render(request,'contact/validation.html')

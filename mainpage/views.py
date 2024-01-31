@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import FireFightingVehicle, MunicipalityVehicle,AmbulanceVehicle,Pump
 from .forms import UserRegisterForm, UserLogInForm,LogoutForm,ContactUsForm
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -53,7 +54,14 @@ def contactmine(request):
         form = ContactUsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('contact:home')
+            cd=form.cleaned_data
+            name=cd['name']
+            email=cd['email']
+            title=cd['title']
+            message=cd['message']
+            msg="name:{0}\nemail:{1}\ntitle:{2}\nmessage:\n{3}".format(name,email,title,message)
+            send_mail(title,msg,'yeganetanhaei@gmail.com',['yeganetanhaei@gmail.com'],fail_silently=False)
+            return redirect('contact:validation')
     else:
         form = ContactUsForm()
     return render(request, 'mainpage/contact.html', {'form': form})
