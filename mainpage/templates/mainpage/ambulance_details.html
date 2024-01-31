@@ -51,17 +51,19 @@
 {% block carousel %}
     <!-- Carousel Start -->
     <div class="carousel">
-        {% for ambulance in all_ambulance %}
-            <div class="container-fluid">
-                <div class="owl-carousel">
+        <div class="container-fluid">
+            <div class="owl-carousel">
+                {% for img in ambulance_details.img.all %}
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="{{ ambulance.img.url }}" alt="Image">
+{#                            {% with img.image.url as image_url %}#}
+                                <img src="{{ img.image.url }}" alt="Image">
+{#                            {% endwith %}#}
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
     <!-- Carousel End -->
 {% endblock %}

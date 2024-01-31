@@ -52,17 +52,19 @@
 {% block carousel %}
     <!-- Carousel Start -->
     <div class="carousel">
-        {% for pump in pump_info %}
-            <div class="container-fluid">
-                <div class="owl-carousel">
+        <div class="container-fluid">
+            <div class="owl-carousel">
+                {% for img in pump_details.img.all %}
                     <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="{{ pump.img.url }}" alt="Image">
+{#                            {% with img.image.url as image_url %}#}
+                                <img src="{{ img.image.url  }}" alt="Image">
+{#                            {% endwith %}#}
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
     <!-- Carousel End -->
 {% endblock %}
